@@ -1,0 +1,4 @@
+services:
+    commands.report_service:
+          class: Awin\ReportTask\Bundle\ReportBundle\Command\ReportCommand
+          arguments: []

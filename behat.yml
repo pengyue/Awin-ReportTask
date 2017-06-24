@@ -1,0 +1,12 @@
+default:
+  gherkin:
+    filters:
+      tags: "~@wip"
+  suites:
+      default:
+        contexts:
+          - Awin\ReportTask\Behat\Context\ReportContext
+  extensions:
+    Zalas\Behat\NoExtension:
+      imports:
+        - features/Resources/config/services.yml

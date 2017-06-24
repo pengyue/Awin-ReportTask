@@ -1,0 +1,4 @@
+services:
+    app.currency_service:
+        class:     Awin\ReportTask\Bundle\ReportBundle\Service\CurrencyService
+        arguments: []

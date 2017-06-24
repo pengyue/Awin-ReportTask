@@ -1,0 +1,4 @@
+services:
+    app.merchant_transaction_service:
+        class:     Awin\ReportTask\Bundle\ReportBundle\Service\MerchantTransactionService
+        arguments: []

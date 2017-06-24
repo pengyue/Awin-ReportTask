@@ -1,0 +1,77 @@
+{
+    "name": "awin/report-task",
+    "description": "AWin candidate report task",
+    "type": "project",
+    "require": {
+        "symfony/symfony": "^3.3",
+        "symfony/dependency-injection": "^3.2",
+        "symfony/config": "^3.2",
+        "nelmio/cors-bundle": "^1.5",
+        "nelmio/api-doc-bundle": "^2.13",
+        "friendsofsymfony/rest-bundle": "^2.1",
+        "jms/serializer-bundle": "^1.4",
+        "willdurand/faker-bundle": "^1.3",
+        "sensio/distribution-bundle": "^5.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "symfony/monolog-bundle": "^3.1",
+        "league/csv": "^8.2",
+        "mikey179/vfsStream": "^1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.*",
+        "behat/behat": "3.*",
+        "whatthejeff/nyancat-phpunit-resultprinter": "1.*",
+        "laravel/homestead": "^5.2",
+        "behat/behat": "3.2.*",
+        "zalas/behat-no-extension": "^1.0"
+    },
+    "autoload": {
+        "files": [
+            "app/AppKernel.php"
+        ],
+        "psr-4": {
+            "Awin\\ReportTask\\App\\": "app/",
+            "Awin\\ReportTask\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "app/AppKernel.php"
+        ],
+        "psr-4": {
+            "Awin\\ReportTask\\Behat\\": "features/",
+            "Awin\\ReportTask\\UnitTest\\": "tests/unit/src/",
+            "Awin\\ReportTask\\IntegrationTest\\": "tests/integration/src/"
+        }
+    },
+    "scripts": {
+        "symfony-scripts": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts"
+        ]
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative",
+        "branch-alias": null
+    },
+    "authors": [
+        {
+            "name": "Peng Yue",
+            "email": "penyue@gmail.com"
+        }
+    ]
+}

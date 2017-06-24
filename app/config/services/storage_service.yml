@@ -1,0 +1,4 @@
+services:
+    app.storage_service:
+        class:     Awin\ReportTask\Bundle\ReportBundle\Service\Storage\StorageCsvService
+        arguments: []

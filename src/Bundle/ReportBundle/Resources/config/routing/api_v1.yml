@@ -1,0 +1,13 @@
+get_status:
+    path: /ping
+    methods: [GET]
+    type:     "rest"
+    defaults:
+        _controller: "api.controllers.v1.default:getStatusAction"
+
+validate_phone_number:
+    path: /phone_number/validate
+    methods: [GET]
+    type:     "rest"
+    defaults:
+        _controller: "api.controllers.v1.phone_number:validationPhoneNumberAction"

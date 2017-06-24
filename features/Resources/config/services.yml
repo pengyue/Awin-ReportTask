@@ -1,0 +1,17 @@
+parameters:
+    context_services:
+        Awin\ReportTask\Behat\Service\ReportService: report_service
+        Awin\ReportTask\Bundle\ReportBundle\Service\MerchantTransactionService: merchant_transaction_service
+
+services:
+    report_service:
+        class: Awin\ReportTask\Behat\Service\ReportService
+
+    merchant_transaction_service:
+        class: Awin\ReportTask\Bundle\ReportBundle\Service\MerchantTransactionService
+
+    service_argument_resolver:
+        class: Awin\ReportTask\Behat\Context\Argument\ServiceArgumentResolver
+        arguments: ["@service_container", "%context_services%"]
+        tags:
+            - { name: context.argument_resolver }

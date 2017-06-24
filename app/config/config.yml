@@ -1,0 +1,67 @@
+imports:
+    - { resource: parameters/parameters.yml }
+    - { resource: services/report_service.yml }
+    - { resource: services/currency_service.yml }
+    - { resource: services/merchant_transaction_service.yml }
+    - { resource: services/storage_service.yml }
+
+framework:
+    templating:
+        engines: ['twig']
+    router:
+        resource: '%kernel.root_dir%/config/routing/routing.yml'
+        strict_requirements: '%kernel.debug%'
+    templating:
+        engines: ['twig']
+    validation: { enabled: true, enable_annotations: true }
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
+
+# Nelmio API Doc
+nelmio_api_doc:
+    sandbox:
+        accept_type:        'application/json'
+        body_format:
+            formats:        [ 'json' ]
+            default_format: 'json'
+        request_format:
+            formats:
+                json:       'application/json'
+
+# Nelmio CORS
+nelmio_cors:
+    defaults:
+        allow_credentials: false
+        allow_origin: ['*']
+        allow_headers: ['*']
+        allow_methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
+        max_age: 3600
+        hosts: []
+        origin_regex: false
+    paths:
+        '^/': ~
+
+# FOSRest Configuration
+fos_rest:
+    body_listener: true
+    param_fetcher_listener: true
+    view:
+            view_response_listener: 'force'
+            formats:
+                jsonp: true
+                json: true
+            mime_types:
+                json: ['application/json', 'application/x-json']
+            jsonp_handler: ~
+    routing_loader:
+            default_format:  json
+            include_format:  false
+    format_listener:
+        rules:
+            - { path: '^/', priorities: ['json', 'jsonp'], fallback_format: json, prefer_extension: true }
+    exception:
+            enabled: true

@@ -1,0 +1,4 @@
+services:
+
+    api.listeners.force_json_response:
+        class: Awin\ReportTask\Bundle\ReportBundle\Listener\ForceJsonResponseListener

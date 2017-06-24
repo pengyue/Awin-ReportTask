@@ -1,0 +1,7 @@
+api_v1:
+    prefix:   "/api/v1"
+    type:     "rest"
+    resource: "@ReportBundle/Resources/config/routing/api_v1.yml"
+NelmioApiDocBundle:
+    prefix:   "/api/doc"
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
