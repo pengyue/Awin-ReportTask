@@ -5,9 +5,9 @@ Feature: Transaction report
   So that I can view transactions with different currencies and merchants
 
   Scenario Outline:
-    Given The transaction data can be read on merchant id "<merchant_id>"
-    When I want to generate a report on merchant id "<merchant_id>"
-    Then I should see transactions with merchant id "1"
+    Given The transaction data can be read on merchant id: "<merchantId>"
+    When I want to generate a report on merchant id: "<merchantId>"
+    Then I should see transactions csv file generated with only merchant id: "<merchantId>"
     Examples:
-    | merchant_id |
-    | 1           |
+    | merchantId |
+    | 1          |

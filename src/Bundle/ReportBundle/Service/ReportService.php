@@ -45,7 +45,7 @@ class ReportService implements ReportServiceInterface
         CurrencyServiceInterface $currencyService,
         TransactionStorageInterface $transactionStorage,
         $merchantId,
-        $date
+        $date = null
     ) {
         $data = $merchantTransactionService
             ->filterTransactionsByMerchantId($merchantId)

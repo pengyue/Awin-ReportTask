@@ -38,23 +38,4 @@ class TransactionCsvStorageTest extends TestCase
 
         $this->assertSame($this->transactionCsvStorage, $self);
     }
-
-    public function testItCanSaveDataToCsvFile()
-    {
-//        $this->transactionCsvStorage->setData([[1, 1], [2, 3], [5, 8]])->save('var/storage/test/test.csv');
-
-//        $csv = Reader::createFromPath('var/storage/test/test.csv');
-//        $csv->setDelimiter(';');
-//        $data = $csv->setOffset(2)->setLimit(10)->fetchAll();
-//        print_r($data);
-
-//        $root = vfsStream::setup('testDataDir');
-//        $file = vfsStream::newFile('test.csv')
-//            ->withContent('')
-//            ->at($root);
-
-//        $content = file_get_contents('var/storage/test/test.csv');
-//        $this->transactionCsvStorage->setData([1, 2, 3])->save($file);
-
-    }
 }

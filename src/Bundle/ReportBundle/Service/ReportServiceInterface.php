@@ -31,6 +31,6 @@ interface ReportServiceInterface
         CurrencyServiceInterface $currencyService,
         TransactionStorageInterface $transactionStorage,
         $merchantId,
-        $date
+        $date = null
     );
 }
