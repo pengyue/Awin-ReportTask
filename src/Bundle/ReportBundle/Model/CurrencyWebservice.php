@@ -3,7 +3,8 @@
 namespace Awin\ReportTask\Bundle\ReportBundle\Model;
 
 /**
- * The fake currency webservice, the currency exchange rate betweem 2 currencies are random
+ * The fake currency webservice, the currency exchange rate betweem 2 currencies are random,
+ * Ideally this class should be a service, rather than a model, according to the requirement, keep it in model for now
  *
  * @date       24/06/2017
  * @time       11:35

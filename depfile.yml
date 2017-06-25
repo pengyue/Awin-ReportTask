@@ -1,0 +1,33 @@
+paths:
+  - ./src
+
+exclude_files:
+  - .*test.*
+
+layers:
+
+  - name: Command
+    collectors:
+      - type: className
+        regex: Awin\\ReportTask\\Bundle\\ReportBundle\\Command\\.*
+
+  - name: Model
+    collectors:
+      - type: className
+        regex:  Awin\\ReportTask\\Bundle\\ReportBundle\\Model\\.*
+
+  - name: Service
+    collectors:
+      - type: className
+        regex: Awin\\ReportTask\\Bundle\\ReportBundle\\Service\\.*
+
+ruleset:
+
+  Command:
+    - Model
+    - Service
+
+  Service:
+    - Model
+
+  Model:

@@ -46,9 +46,11 @@ See deployment for notes on how to deploy the project on a live system.
 
 To start this project, use composer update to install all the dependencies
 
+
 ### Prerequisites
 
 None
+
 
 ### Installing
 
@@ -99,6 +101,7 @@ Please review the report csv file when each command is run, for example, it look
 1,03/05/2010,$23.05,$,23.05,£18.44,€20.05,$23.05
 ```
 
+
 ## Running the tests
 
 There are 3 kinds of automated tests, unit tests, integration test and behat tests
@@ -135,6 +138,20 @@ To run behat tests.
 vendor/behat/behat/bin/behat
 ```
 
+
+### Dependency checks
+
+The code has been run with the deptrac to verify any dependency violations. The dependencies diagram
+can be found at var/artifacts/deptrac/dependeencies.png.
+
+To run the command below to generate the report, before running the command, please install graphviz first.
+(Please refer to https://github.com/sensiolabs-de/deptrac for installation)
+
+```
+php deptrac.phar analyze depfile.yml --formatter-graphviz-dump-image=var/artifacts/deptrac/dependencies.png
+```
+
+
 ### And coding style tests
 
 The code follows PSR/2 code standard, and use PSR-0 autoloading
@@ -149,15 +166,18 @@ There is no live deployment
 
 None
 
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/pengyue/Awin-ReportTask/tags). 
+
 
 ## Authors
 
 * **Peng Yue** - *Initial work* - [ReportTask](https://github.com/pengyue/Awin-ReportTask)
 
 See also the list of [contributors](https://github.com/pengyue/Awin-ReportTask/contributors) who participated in this project.
+
 
 ## License
 
