@@ -70,25 +70,25 @@ Composer update
 To generate all the transactions, then run the command
 
 ```
-php bin/console merchant:report
+php bin/console report:merchant
 ```
 
 To generate the transactions with merchant id 1, then run the command
 
 ```
-php bin/console merchant:report 1
+php bin/console report:merchant 1
 ```
 
 To generate the transactions with date 01/05/2010, then run the command
 
 ```
-php bin/console merchant:report null 01/05/2010
+php bin/console report:merchant null 01/05/2010
 ```
 
 To generate the transactions with merchant_id 1 and date 01/05/2010, then run the command
 
 ```
-php bin/console merchant:report 1 01/05/2010
+php bin/console report:merchant 1 01/05/2010
 ```
 
 Please review the report csv file when each command is run, for example, it look like
@@ -153,7 +153,8 @@ php deptrac.phar analyze depfile.yml --formatter-graphviz-dump-image=var/artifac
 
 ### Docker build
 
-The Dockerfile has been added, to generate a new image, please run command below, remember removing vendor folder before
+The Dockerfile has been added, to generate a new image, please run command below, 
+remember removing 'vendor' and 'var/cache/*' before
 
 ```
 docker build -t awin-task .
