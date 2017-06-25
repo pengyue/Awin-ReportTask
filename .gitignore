@@ -3,4 +3,5 @@ var/log/*
 var/cache/*
 var/sessions/*
 var/log/*
+var/code-coverage/*
 .idea/

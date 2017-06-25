@@ -2,7 +2,6 @@
 
 namespace Awin\ReportTask\UnitTest\Bundle\ReportBundle\Model;
 
-use Awin\ReportTask\Bundle\ReportBundle\Model\CurrencyConverter;
 use Awin\ReportTask\Bundle\ReportBundle\Model\CurrencyWebservice;
 use PHPUnit\Framework\TestCase;
 
@@ -25,6 +24,14 @@ class CurrencyWebserviceTest extends TestCase
     public function setUp()
     {
         $this->currencyWebservice = new CurrencyWebservice();
+    }
+
+    /**
+     * @expectedException \Awin\ReportTask\Bundle\ReportBundle\Exception\CurrencyExchangeRateNotFoundException
+     */
+    public function testItCanThrowCurrencyExchangeRateNotFoundException()
+    {
+        $this->currencyWebservice->getExchangeRate('YEN', 'CAD');
     }
 
     /**

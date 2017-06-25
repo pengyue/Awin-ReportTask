@@ -4,6 +4,7 @@ namespace Awin\ReportTask\Bundle\ReportBundle\Service;
 
 use Awin\ReportTask\Bundle\ReportBundle\Model\Merchant;
 use Awin\ReportTask\Bundle\ReportBundle\Model\TransactionTable;
+use Awin\ReportTask\Bundle\ReportBundle\Utility\Helper;
 
 /**
  * The merchant transaction aggregation service, it filter the transaction data with merchant_id
@@ -69,7 +70,6 @@ class MerchantTransactionService implements MerchantTransactionServiceInterface
      */
     public function filterTransactionsByMerchantId($merchantId = null)
     {
-        //TODO, add a try catch
         $this->data[] = (null === $merchantId)
             ? $this->transactionRepository->getTransactions()
             : $this->data[] = $this->merchantRepository
@@ -110,34 +110,9 @@ class MerchantTransactionService implements MerchantTransactionServiceInterface
         $result = array_shift($nonEmptyResults);
 
         foreach ($nonEmptyResults as $item) {
-            $result = self::array_intersect_recursive($result, $item);
+            $result = Helper::array_intersect_recursive($result, $item);
         }
 
         return $result;
-    }
-
-    /**
-     * recursively intersect arrays
-     * TODO, move it to a utilize class
-     *
-     * @param array $array1
-     * @param array $array2
-     *
-     * @return array
-     */
-    public static function array_intersect_recursive($array1, $array2)
-    {
-        foreach($array1 as $key => $value) {
-            if (!isset($array2[$key])) {
-                unset($array1[$key]);
-            } else {
-                if (is_array($array1[$key])) {
-                    $array1[$key] = self::array_intersect_recursive($array1[$key], $array2[$key]);
-                } elseif ($array2[$key] !== $value) {
-                    unset($array1[$key]);
-                }
-            }
-        }
-        return $array1;
     }
 }

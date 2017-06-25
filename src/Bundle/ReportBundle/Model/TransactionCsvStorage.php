@@ -2,6 +2,7 @@
 
 namespace Awin\ReportTask\Bundle\ReportBundle\Model;
 
+use Awin\ReportTask\Bundle\ReportBundle\Exception\ReportFileSaveFailureException;
 use League\Csv\Reader;
 use League\Csv\Writer;
 use Symfony\Component\Config\Definition\Exception\Exception;
@@ -106,8 +107,8 @@ class TransactionCsvStorage implements TransactionStorageInterface
             ]);
 
             $csv->insertAll($this->data);
-        } catch (Exception $e) {
-            //TODO, throw an exception
+        } catch (\Exception $e) {
+            throw new ReportFileSaveFailureException($targetCsvFile);
         }
 
         return true;

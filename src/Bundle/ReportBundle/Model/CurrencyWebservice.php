@@ -2,6 +2,8 @@
 
 namespace Awin\ReportTask\Bundle\ReportBundle\Model;
 
+use Awin\ReportTask\Bundle\ReportBundle\Exception\CurrencyExchangeRateNotFoundException;
+
 /**
  * The fake currency webservice, the currency exchange rate betweem 2 currencies are random,
  * Ideally this class should be a service, rather than a model, according to the requirement, keep it in model for now
@@ -75,8 +77,9 @@ class CurrencyWebservice
                 break;
         }
 
-        //TODO, if rate is not set, then throw exception
-
+        if (null == $rate) {
+            throw new CurrencyExchangeRateNotFoundException($originalCurrency, $targetCurrency);
+        }
 
         return (float)$rate;
     }

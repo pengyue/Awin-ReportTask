@@ -31,6 +31,16 @@ class TransactionCsvStorageTest extends TestCase
         $this->transactionCsvStorage = new TransactionCsvStorage(self::CSV_FILE_PATH);
     }
 
+    /**
+     * @expectedException \Awin\ReportTask\Bundle\ReportBundle\Exception\ReportFileSaveFailureException
+     */
+    public function testItCanThrowReportFileSavingFailureException()
+    {
+        $data = $this->transactionCsvStorage->getData(1, 100);
+        $this->transactionCsvStorage->setData($data);
+        $this->transactionCsvStorage->save('/etc');
+    }
+
     public function testItCanSetData()
     {
         $data = $this->transactionCsvStorage->getData(1, 100);

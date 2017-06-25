@@ -151,6 +151,14 @@ To run the command below to generate the report, before running the command, ple
 php deptrac.phar analyze depfile.yml --formatter-graphviz-dump-image=var/artifacts/deptrac/dependencies.png
 ```
 
+### Docker build
+
+The Dockerfile has been added, to generate a new image, please run command below, remember removing vendor folder before
+
+```
+docker build -t awin-task .
+```
+
 
 ### And coding style tests
 
