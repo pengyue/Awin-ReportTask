@@ -7,8 +7,8 @@ use Awin\ReportTask\Bundle\ReportBundle\Model\TransactionTable;
 /**
  * Test transaction table model class
  *
- * @date       21/06/2017
- * @time       16:43
+ * @date       25/06/2017
+ * @time       13:43
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

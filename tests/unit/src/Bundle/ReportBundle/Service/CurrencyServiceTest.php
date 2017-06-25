@@ -10,8 +10,8 @@ use PHPUnit\Framework\TestCase;
 /**
  * The currency service which pull all the currency components together for exchange rate calculation
  *
- * @date       22/06/2017
- * @time       13:25
+ * @date       24/06/2017
+ * @time       17:15
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

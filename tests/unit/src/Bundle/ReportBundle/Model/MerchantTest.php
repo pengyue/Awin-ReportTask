@@ -6,10 +6,10 @@ use Awin\ReportTask\Bundle\ReportBundle\Model\Merchant;
 use Awin\ReportTask\Bundle\ReportBundle\Model\TransactionTable;
 
 /**
- * The merchant test class
+ * The merchant repository test class
  *
- * @date       21/06/2017
- * @time       17:53
+ * @date       25/06/2017
+ * @time       12:05
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

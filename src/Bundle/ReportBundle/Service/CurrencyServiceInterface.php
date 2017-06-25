@@ -8,8 +8,8 @@ use Awin\ReportTask\Bundle\ReportBundle\Model\CurrencyWebservice;
 /**
  * The currency service interface
  *
- * @date       23/06/2017
- * @time       12:26
+ * @date       24/06/2017
+ * @time       18:57
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

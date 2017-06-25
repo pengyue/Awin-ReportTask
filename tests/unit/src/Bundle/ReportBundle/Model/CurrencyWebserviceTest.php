@@ -9,8 +9,8 @@ use PHPUnit\Framework\TestCase;
 /**
  * The faked currency webservice class
  *
- * @date       21/06/2017
- * @time       22:07
+ * @date       25/06/2017
+ * @time       11:17
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

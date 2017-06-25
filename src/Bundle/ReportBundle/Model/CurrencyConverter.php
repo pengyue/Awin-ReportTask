@@ -4,6 +4,16 @@ namespace Awin\ReportTask\Bundle\ReportBundle\Model;
 
 use Awin\ReportTask\Bundle\ReportBundle\Exception\CurrencyNotFoundException;
 
+/**
+ * The currency service which pull the (remote) currency webservice and (local) converter class.
+ * It also converts the currency symbol from/to currency ISO code for more standard process
+ *
+ * @date       24/06/2017
+ * @time       12:47
+ * @author     Peng Yue <penyue@gmail.com>
+ * @copyright  2004-2017 Peng Yue
+ */
+
 class CurrencyConverter
 {
     /**

@@ -7,8 +7,8 @@ use Awin\ReportTask\Bundle\ReportBundle\Model\TransactionStorageInterface;
 /**
  * The report service interface
  *
- * @date       22/06/2017
- * @time       13:09
+ * @date       24/06/2017
+ * @time       20:45
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

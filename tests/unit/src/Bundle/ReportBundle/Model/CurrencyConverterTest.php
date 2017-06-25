@@ -9,8 +9,8 @@ use Awin\ReportTask\Bundle\ReportBundle\Model\CurrencyWebservice;
 /**
  * The currency converter test class
  *
- * @date       21/06/2017
- * @time       21:06
+ * @date       25/06/2017
+ * @time       10:51
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

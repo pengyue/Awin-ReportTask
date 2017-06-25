@@ -7,10 +7,10 @@ use Awin\ReportTask\Bundle\ReportBundle\Model\CurrencyConverter;
 use Awin\ReportTask\Bundle\ReportBundle\Model\CurrencyWebservice;
 
 /**
- * The currencies validation services
+ * The currencies aggregation services on currency conversion process
  *
- * @date       22/06/2017
- * @time       13:09
+ * @date       24/06/2017
+ * @time       18:49
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

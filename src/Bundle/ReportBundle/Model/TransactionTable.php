@@ -2,17 +2,16 @@
 
 namespace Awin\ReportTask\Bundle\ReportBundle\Model;
 
-use Faker\Provider\cs_CZ\DateTime;
-
 /**
- * Source of transactions, can read data.csv directly for simplicity sake,
- * should behave like a database (read only)
+ * Source of transactions, read data.csv directly for simplicity sake,
+ * It can filter by the merchant_id or date
  *
- * @date       21/06/2017
+ * @date       24/06/2017
  * @time       16:35
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */
+
 class TransactionTable
 {
     /**

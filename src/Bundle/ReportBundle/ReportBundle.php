@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Description of BaseReportBundle
+ * The base class for the BaseReportBundle, it belongs to customized symfony framework
  */
 class ReportBundle extends Bundle
 {

@@ -6,10 +6,11 @@ use Awin\ReportTask\Bundle\ReportBundle\Model\Merchant;
 use Awin\ReportTask\Bundle\ReportBundle\Model\TransactionTable;
 
 /**
- * The merchant transaction service class
+ * The merchant transaction aggregation service, it filter the transaction data with merchant_id
+ * or date, and prepare the data for the report service class
  *
- * @date       22/06/2017
- * @time       14:19
+ * @date       24/06/2017
+ * @time       19:17
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

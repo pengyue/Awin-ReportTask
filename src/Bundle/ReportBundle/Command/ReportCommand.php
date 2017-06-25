@@ -14,9 +14,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
 /**
- * The console command to generate the merchant transaction report
+ * The console command to generate the merchant transaction report.
+ * It can filter by either merchant_id, date or both, the command format is
  *
- * @date       22/06/2017
+ * php bin/console report:merchant                   (generate all the transaction)
+ * php bin/console report:merchant 1                 (generate the transaction for merchant_id 1)
+ * php bin/console report:merchant 1 01/05/2010      (generate the transactions for merchant_id 1 and on date 01/05/2010)
+ * php bin/console report:merchant null 01/05/201    (generate the transactions only on 01/05/2010)
+ *
+ * @date       24/06/2017
  * @time       10:13
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue

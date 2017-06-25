@@ -7,8 +7,8 @@ use Awin\ReportTask\Bundle\ReportBundle\Service\CurrencyServiceInterface;
 /**
  * The interface defines the default observer behaviours
  *
- * @date       22/06/2017
- * @time       14:36
+ * @date       24/06/2017
+ * @time       18:01
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

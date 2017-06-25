@@ -7,10 +7,12 @@ use Awin\ReportTask\Bundle\ReportBundle\Service\Observer\ReportObserverInterface
 use Awin\ReportTask\Bundle\ReportBundle\Model\TransactionStorageInterface;
 
 /**
- * The report service class for generating the report
+ * The report service class for generating the report.
+ * It use observer pattern to convert the currencies,
+ * it also could introduce other observers such as email, fraud-check validation alert, etc
  *
- * @date       22/06/2017
- * @time       13:09
+ * @date       24/06/2017
+ * @time       20:18
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */

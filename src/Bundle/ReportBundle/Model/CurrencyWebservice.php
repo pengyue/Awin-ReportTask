@@ -2,6 +2,14 @@
 
 namespace Awin\ReportTask\Bundle\ReportBundle\Model;
 
+/**
+ * The fake currency webservice, the currency exchange rate betweem 2 currencies are random
+ *
+ * @date       24/06/2017
+ * @time       11:35
+ * @author     Peng Yue <penyue@gmail.com>
+ * @copyright  2004-2017 Peng Yue
+ */
 
 class CurrencyWebservice
 {

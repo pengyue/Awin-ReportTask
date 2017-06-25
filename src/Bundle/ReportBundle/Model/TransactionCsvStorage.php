@@ -7,10 +7,11 @@ use League\Csv\Writer;
 use Symfony\Component\Config\Definition\Exception\Exception;
 
 /**
- * The class to read data from CSV file
+ * The class to read data from CSV file, it is implemented from TransactionStorageInterface
+ * and other implementation could introduced, for example, database, elasticsearch, API, etc
  *
- * @date       22/06/2017
- * @time       17:20
+ * @date       24/06/2017
+ * @time       15:20
  * @author     Peng Yue <penyue@gmail.com>
  * @copyright  2004-2017 Peng Yue
  */
