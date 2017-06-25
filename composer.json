@@ -1,6 +1,12 @@
 {
     "name": "awin/report-task",
     "description": "AWin candidate report task",
+    "authors": [
+        {
+            "name": "Peng Yue",
+            "email": "penyue@gmail.com"
+        }
+    ],
     "type": "project",
     "require": {
         "symfony/symfony": "^3.3",
@@ -66,11 +72,5 @@
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "branch-alias": null
-    },
-    "authors": [
-        {
-            "name": "Peng Yue",
-            "email": "penyue@gmail.com"
-        }
-    ]
+    }
 }

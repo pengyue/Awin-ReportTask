@@ -37,7 +37,7 @@ Points will be deducted for leaving any redundant files in your code (e.g. left 
 The project is to create a command to generate a transaction report on merchant_id and date for all 3 currencies (GBP, EUR, USD).
 It uses Symfony 3 framework and implemented with customized template, it utilizes dependency injection,
 service container, unit tests, integration tests, behat tests, SOLID design pattern such as observer pattern.
-It has nearly 100% code coverage on the main logic directories (Model and Service classes).
+It has nearly 100% code coverage on the main logic directories (src/).
 
 ## Getting Started
 
