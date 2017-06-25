@@ -64,11 +64,14 @@ class TransactionTable
         //for simplicity, no pagination here neither
         $data = $this->transactionStorage->getData(1, 15);
 
-        $dateWorker = new \DateTime($date);
-        $formattedDate = $dateWorker->format('Y-m-d H:i:s');
+        $dateWorker = new \DateTime();
+        $formattedDate = (null === $date)
+            ? null
+            : $dateWorker->createFromFormat('d/m/Y', $date)->format('Y-m-d H:i:s');
 
         foreach ($data as $item) {
-            if (strtotime($formattedDate) - strtotime($item[1]) > 0) {
+            $itemTime = $dateWorker->createFromFormat('d/m/Y', $item[1])->format('Y-m-d H:i:s');
+            if (null === $formattedDate || strtotime($formattedDate) - strtotime($itemTime) >= 0 ) {
                 $symbol = mb_substr($item[2], 0, 1, 'UTF-8');
                 $amount = mb_substr($item[2], 1);
                 $temp   = array_merge($item, [$symbol, $amount]);

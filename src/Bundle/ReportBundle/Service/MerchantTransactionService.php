@@ -94,15 +94,21 @@ class MerchantTransactionService implements MerchantTransactionServiceInterface
     }
 
     /**
-     * intersect and keep the same values transactions on each filter data set
+     * Intersect and keep the same values transactions on each filter data set
      *
      * @return array
      */
     public function getReportData()
     {
-        $result = array_shift($this->data);
+        //remove the empty array for the intersection later on
+        $nonEmptyResults = array_filter($this->data, function($item) {
+            return !empty($item);
+        });
 
-        foreach ($this->data as $item) {
+        //get the first array from list and intersect with the rest items
+        $result = array_shift($nonEmptyResults);
+
+        foreach ($nonEmptyResults as $item) {
             $result = self::array_intersect_recursive($result, $item);
         }
 

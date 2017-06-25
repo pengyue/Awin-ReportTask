@@ -38,10 +38,9 @@ class ReportCommand extends ContainerAwareCommand
                 InputArgument::OPTIONAL,
                 'Which merchant you would like to generate report for'
             )
-            ->addOption(
+            ->addArgument(
                 'date',
-                null,
-                InputOption::VALUE_NONE,
+                InputArgument::OPTIONAL,
                 'If null is set, all the transaction will be added in the report, 
                 otherwise only transaction on that date will be generated'
             );
@@ -60,7 +59,7 @@ class ReportCommand extends ContainerAwareCommand
         $dataFilePath               = 'var/storage/data.csv';
         $reportFilePath             = 'var/storage/report.csv';
         $merchantId                 = $input->getArgument('merchant_id');
-        $date                       = $input->getOption('date');
+        $date                       = $input->getArgument('date');
 
         $reportService              = $this->getContainer()->get('app.report_service');
         $currencyService            = $this->getContainer()->get('app.currency_service');
