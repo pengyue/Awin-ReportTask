@@ -29,7 +29,7 @@ the position for which you have applied.
 Points will be deducted for leaving any redundant files in your code (e.g. left overs from framework skeleton app creation).
 
 
-==================================================== Task README ================================================
+================ Task README =====================
 
 
 # Awin Report Task project

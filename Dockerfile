@@ -57,15 +57,6 @@ RUN apk upgrade --no-cache && \
  rm -rf /etc/php7/conf.d/xdebug.ini && \
  ln -s /usr/sbin/php-fpm7 /usr/sbin/php-fpm
 
-# Install New Relic
-RUN PHP_EXTENSION=`php -i | grep "PHP Extension => " | cut -f4 -d' '` && \
- NR_VERSION=`wget -qO - https://download.newrelic.com/php_agent/release/ | grep -- '-linux-musl.tar.gz' | awk -F 'release/' '{ print $2 }' | awk -F '-linux-musl.tar.gz' ' { print $1"-linux-musl" }'` && \
- wget -qO - https://download.newrelic.com/php_agent/release/$NR_VERSION.tar.gz | \
- tar zx $NR_VERSION/agent/x64/newrelic-$PHP_EXTENSION.so $NR_VERSION/daemon/newrelic-daemon.x64 && \
- mv /$NR_VERSION/agent/x64/newrelic-$PHP_EXTENSION.so /usr/lib/php7/modules/newrelic.so && chown root:root /usr/lib/php7/modules/newrelic.so && \
- mv /$NR_VERSION/daemon/newrelic-daemon.x64 /usr/bin/newrelic-daemon && chown root:root /usr/bin/newrelic-daemon && \
- rm -rf /$NR_VERSION
-
 # Install composer
 RUN wget -qO /usr/local/bin/composer https://getcomposer.org/download/1.4.2/composer.phar && chmod +x /usr/local/bin/composer
 
