@@ -2,7 +2,7 @@ node {
 
     try {
 
-        staging("Checkout") {
+        stage("Checkout") {
             check scm
         }
 
