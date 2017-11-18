@@ -7,7 +7,9 @@ node {
         }
 
         stage("Build") {
+            sh "sudo apt-get install graphviz"
             sh "composer install"
+            sh "php deptrac.phar -v analyze depfile.yml"
         }
 
         stage('Test') {
