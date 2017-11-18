@@ -12,12 +12,12 @@ node {
         }
 
         stage ("Static code analysis") {
-            sh "vendor/bin/phpcs --config-set ignore_warnings_on_exit 1 --report=checkstyle --report-file=var/checkstyle-result.xml -q /src"
-            step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', pattern: 'checkstyle-*'])
+            //sh "vendor/bin/phpcs --config-set ignore_warnings_on_exit 1 --report=checkstyle --report-file=var/checkstyle-result.xml -q /src"
+            //step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', pattern: 'checkstyle-*'])
         }
 
         stage ("Generate report") {
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'var/code-coverage', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: 'Code Report'])
+            //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'var/code-coverage', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: 'Code Report'])
         }
 
         stage ('Test') {
