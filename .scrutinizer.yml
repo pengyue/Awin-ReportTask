@@ -36,7 +36,7 @@ build:
                 redis: false
                 postgresql: false
                 variables:
-                    APP_ENV: testing
+                    APP_ENV: test
         tests: true
     cache:
         directories:
