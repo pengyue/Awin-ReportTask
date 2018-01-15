@@ -32,10 +32,8 @@ node {
         }
 
         stage ('Docker Registration Push') {
-            // If we had ansible installed on the server, setup to run an ansible playbook
-            // sh "ansible-playbook -i ./ansible/hosts ./ansible/deploy.yml"
             sh "echo 'PUSHING TO DockerHub ...'"
-            docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+            docker.withRegistry('https://index.docker.io/v1/', 'Dockerhub') {
                 def app = docker.build("pengyue/awin-reporttask:${commit_id}", '.').push()
             }
         }
