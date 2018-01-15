@@ -69,8 +69,8 @@ USER root
 WORKDIR /app
 
 # Set a trigger to purge the sample app on descendants
-ONBUILD RUN rm -rf /app/public/*
-ONBUILD RUN rm -rf /app/var/cache/*
+ONBUILD RUN rm -rf /app/public
+ONBUILD RUN rm -rf /app/var/cache
 
 
 # Add app
@@ -83,12 +83,14 @@ RUN mkdir -p /app/vendor/ && \
     chown -R build:build /app/var/ && \
     mkdir -p /app/var/cache/ && \
     chown -R build:build /app/var/cache/ && \
+    mkdir -p /app/var/logs/ && \
+    chown -R build:build /app/var/logs/ && \
     chown -R build:build /app/bin/
 
 # Run composer install as user 'build' and clean up the cache
 USER build
-RUN php bin/console cache:clear --no-warmup
-RUN composer install --no-interaction --no-ansi --no-progress --prefer-dist && composer clear-cache --no-ansi --quiet
+RUN composer clear-cache --no-ansi --quiet && \
+    composer install --no-interaction --no-ansi --no-progress --prefer-dist
 USER root
 
 # Fix permissions
@@ -96,4 +98,5 @@ RUN chown -R root:root /app/vendor/ && \
     chmod -R go-w /app/vendor/ && \
     chown -R www:www /app/var/cache/ && \
     chown -R www:www /app/var/storage/ && \
+    chown -R www:www /app/var/logs/ && \
     chown -R www:www /app/bin/
