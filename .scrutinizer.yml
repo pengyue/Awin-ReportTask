@@ -1,39 +1,49 @@
 inherit: true
 
 build:
+    nodes:
+        analysis:
+            project_setup:
+                override:
+                    - 'true'
+                before:
+                    # a workaround for https://github.com/sebastianbergmann/phpunit/issues/1976
+                    - stty cols 80
+                    - curl -Ls http://get.sensiolabs.de/deptrac.phar > deptrac && chmod +x deptrac
+                override:
+                    - composer install
+                after:
+                    - php bin/console cache:warmup
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    -
+                        command: phpcs-run
+                        use_website_config: true
+            environment:
+                hosts:
+                    report.awin: '127.0.0.1'
+                apache2:
+                    modules: ['rewrite']
+                    sites:
+                        awin_report_ms:
+                            web_root: 'web/'
+                            host: 'report.awin'
+                php:
+                    version: '7.1'
+                elasticsearch: false
+                    rabbitmq: true
+                    redis: true
+                    postgresql: false
+                    variables:
+                        APP_ENV: testing
+        tests: true
     cache:
         directories:
             - ~/.composer/
-    environment:
-        hosts:
-            report.awin: '127.0.0.1'
-        apache2:
-            modules: ['rewrite']
-            sites:
-                search_ms:
-                    web_root: 'web/'
-                    host: 'report.awin'
-        php:
-            version: '7.1'
-        elasticsearch: false
-        rabbitmq: true
-        redis: true
-        postgresql: false
-        variables:
-            APP_ENV: testing
     dependencies:
        before:
            - sudo apt-get install -y --force-yes graphviz
-    project_setup:
-        before:
-            - cd app
-            # a workaround for https://github.com/sebastianbergmann/phpunit/issues/1976
-            - stty cols 80
-            - curl -Ls http://get.sensiolabs.de/deptrac.phar > deptrac && chmod +x deptrac
-        override:
-            - composer install
-        after:
-            - php bin/console cache:warmup
     tests:
         override:
             -
@@ -50,9 +60,22 @@ build:
                 command: './deptrac analyze depfile.yml --formatter-graphviz-dump-image=/home/scrutinizer/artifacts/dependencies.png'
 
 filter:
-    paths: ["app/*", "src/*"]
-
+    excluded_paths:
+            - 'app/*'
+            - 'bin/*'
+            - 'features/*'
+            - 'tests/*'
+            - 'vendor/*'
 build_failure_conditions:
     - 'elements.rating(<= B).new.exists'
     - 'issues.label("coding-style").new.exists'
     - 'issues.severity(>= MAJOR).new.exists'
+checks:
+    php: true
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                concatenation: true
+            other:
+                after_type_cast: false
