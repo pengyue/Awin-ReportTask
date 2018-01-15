@@ -77,7 +77,7 @@ class CurrencyWebservice
                 break;
         }
 
-        if (null == $rate) {
+        if (null === $rate) {
             throw new CurrencyExchangeRateNotFoundException($originalCurrency, $targetCurrency);
         }
 

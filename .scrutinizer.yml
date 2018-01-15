@@ -47,17 +47,17 @@ build:
     tests:
         override:
             -
-                command: './vendor/bin/phpunit --testsuite="unit" --coverage-clover=phpcov-unit.xml --printer PHPUnit_TextUI_ResultPrinter'
+                command: './vendor/bin/phpunit --testsuite="unit" --coverage-clover=var/code-coverage/phpcov-unit.xml --printer PHPUnit_TextUI_ResultPrinter'
                 coverage:
                     file: 'var/code-coverage/phpcov-unit.xml'
                     format: 'php-clover'
             -
-                command: './vendor/bin/phpunit --testsuite="integration" --coverage-clover=phpcov-integration.xml --printer PHPUnit_TextUI_ResultPrinter'
+                command: './vendor/bin/phpunit --testsuite="integration" --coverage-clover=var/code-coverage/phpcov-integration.xml --printer PHPUnit_TextUI_ResultPrinter'
                 coverage:
                     file: 'var/code-coverage/phpcov-integration.xml'
                     format: 'php-clover'
             -
-                command: './deptrac analyze depfile.yml --formatter-graphviz-dump-image=/home/scrutinizer/artifacts/dependencies.png'
+                command: 'php ./deptrac.phar analyze depfile.yml --formatter-graphviz-dump-image=/home/scrutinizer/artifacts/dependencies.png'
 
 
 filter:
@@ -66,6 +66,7 @@ filter:
             - 'bin/*'
             - 'features/*'
             - 'tests/*'
+            - 'varF/*'
             - 'vendor/*'
 
 build_failure_conditions:
