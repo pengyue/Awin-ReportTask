@@ -1,0 +1,58 @@
+inherit: true
+
+build:
+    cache:
+        directories:
+            - ~/.composer/
+    environment:
+        hosts:
+            report.awin: '127.0.0.1'
+        apache2:
+            modules: ['rewrite']
+            sites:
+                search_ms:
+                    web_root: 'web/'
+                    host: 'report.awin'
+        php:
+            version: '7.1'
+        elasticsearch: false
+        rabbitmq: true
+        redis: true
+        postgresql: false
+        variables:
+            APP_ENV: testing
+    dependencies:
+       before:
+           - sudo apt-get install -y --force-yes graphviz
+    project_setup:
+        before:
+            - cd app
+            # a workaround for https://github.com/sebastianbergmann/phpunit/issues/1976
+            - stty cols 80
+            - curl -Ls http://get.sensiolabs.de/deptrac.phar > deptrac && chmod +x deptrac
+        override:
+            - composer install
+        after:
+            - php bin/console cache:warmup
+    tests:
+        override:
+            -
+                command: './vendor/bin/phpunit --testsuite="unit" --coverage-clover=phpcov-unit.xml --printer PHPUnit_TextUI_ResultPrinter'
+                coverage:
+                    file: 'var/code-coverage/phpcov-unit.xml'
+                    format: 'php-clover'
+            -
+                command: './vendor/bin/phpunit --testsuite="integration" --coverage-clover=phpcov-integration.xml --printer PHPUnit_TextUI_ResultPrinter'
+                coverage:
+                    file: 'var/code-coverage/phpcov-integration.xml'
+                    format: 'php-clover'
+            -
+                command: './deptrac analyze depfile.yml --formatter-graphviz-dump-image=/home/scrutinizer/artifacts/dependencies.png'
+
+filter:
+    paths: ["app/*", "src/*"]
+
+build_failure_conditions:
+    - 'elements.rating(<= B).new.exists'
+    - 'issues.label("coding-style").new.exists'
+    - 'issues.severity(>= MAJOR).new.exists'
