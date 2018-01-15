@@ -14,7 +14,7 @@ class ApiExtension extends Extension
 
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = $this->processConfiguration(new Configuration(), $configs);
+        //$configuration = $this->processConfiguration(new Configuration(), $configs);
 
         $loader = new YamlFileLoader(
             $container,

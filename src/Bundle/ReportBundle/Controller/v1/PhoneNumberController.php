@@ -6,7 +6,6 @@ use Awin\ReportTask\Bundle\ReportBundle\Model\Merchant;
 use Awin\ReportTask\Bundle\ReportBundle\Model\TransactionCsvStorage;
 use Awin\ReportTask\Bundle\ReportBundle\Model\TransactionTable;
 use Awin\ReportTask\Bundle\ReportBundle\Service\Observer\ReportObserver;
-use Awin\ReportTask\Bundle\ReportBundle\Service\PhoneNumber;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -46,10 +45,10 @@ class PhoneNumberController extends FOSRestController
         $merchantId = $request->get('merchant_id');
         $date       = $request->get('date');
 
-        $reportService              = $this->getContainer()->get('app.report_service');
+        $reportService              = $this->container->get('app.report_service');
         $reportService->attach(new ReportObserver());
-        $currencyService            = $this->getContainer()->get('app.currency_service');
-        $merchantTransactionService = $this->getContainer()->get('app.merchant_transaction_service');
+        $currencyService            = $this->container->get('app.currency_service');
+        $merchantTransactionService = $this->container->get('app.merchant_transaction_service');
         $merchantTransactionService->setTransactionRepository(new TransactionTable('var/storage/data.csv'));
         $merchantTransactionService->setMerchantRepository(new Merchant());
         $storage                    = new TransactionCsvStorage('var/storage/data.csv');
