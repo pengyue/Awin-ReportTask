@@ -32,8 +32,8 @@ build:
                 php:
                     version: '7.1'
                 elasticsearch: false
-                rabbitmq: true
-                redis: true
+                rabbitmq: false
+                redis: false
                 postgresql: false
                 variables:
                     APP_ENV: testing
@@ -59,6 +59,7 @@ build:
             -
                 command: './deptrac analyze depfile.yml --formatter-graphviz-dump-image=/home/scrutinizer/artifacts/dependencies.png'
 
+
 filter:
     excluded_paths:
             - 'app/*'
@@ -66,12 +67,15 @@ filter:
             - 'features/*'
             - 'tests/*'
             - 'vendor/*'
+
 build_failure_conditions:
     - 'elements.rating(<= B).new.exists'
     - 'issues.label("coding-style").new.exists'
     - 'issues.severity(>= MAJOR).new.exists'
+
 checks:
     php: true
+
 coding_style:
     php:
         spaces:
