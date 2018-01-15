@@ -25,6 +25,19 @@ class AppKernel extends Kernel
     const ENVIRONMENT_TEST = 'test';
     const ENVIRONMENT_PROD = 'prod';
 
+    protected $varDir;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct($environment, $debug)
+    {
+        $this->rootDir = __DIR__;
+        $this->varDir  = dirname($this->rootDir) . '/var';
+
+        parent::__construct($environment, $debug);
+    }
+
     /**
      * @return array
      */
@@ -82,7 +95,7 @@ class AppKernel extends Kernel
      */
     public function getLogDir()
     {
-        return $this->rootDir . '/../var/log/' . $this->environment;
+        return $this->varDir . '/logs/' . $this->environment;
     }
 
     /**
@@ -90,7 +103,7 @@ class AppKernel extends Kernel
      */
     public function getCacheDir()
     {
-        return $this->rootDir . '/../var/cache/' . $this->environment;
+        return $this->varDir . '/cache/' . $this->environment;
     }
 
     /**

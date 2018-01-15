@@ -1,5 +1,5 @@
 vendor/*
-var/log/*
+var/logs/*
 var/cache/*
 var/sessions/*
 var/log/*
