@@ -32,11 +32,11 @@ build:
                 php:
                     version: '7.1'
                 elasticsearch: false
-                    rabbitmq: true
-                    redis: true
-                    postgresql: false
-                    variables:
-                        APP_ENV: testing
+                rabbitmq: true
+                redis: true
+                postgresql: false
+                variables:
+                    APP_ENV: testing
         tests: true
     cache:
         directories:
