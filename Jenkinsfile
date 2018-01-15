@@ -2,8 +2,12 @@ node {
 
     try {
 
+        def commit_id
+
         stage ("Checkout") {
             checkout scm
+            sh "git rev-parse --short HEAD > .git/commit-id"
+            commit_id = readFile('.git/commit-id').trim()
         }
 
         stage ("Build") {
@@ -22,14 +26,18 @@ node {
 
         stage ('Test') {
             // Run any testing suites
+            sh "echo 'Running tests ...'"
             sh "vendor/bin/phpunit --config phpunit.xml --printer PHPUnit_TextUI_ResultPrinter"
             sh "vendor/bin/behat"
         }
 
-        stage ('Deploy') {
+        stage ('Docker Registration Push') {
             // If we had ansible installed on the server, setup to run an ansible playbook
             // sh "ansible-playbook -i ./ansible/hosts ./ansible/deploy.yml"
-            sh "echo 'DEPLOYING...'"
+            sh "echo 'PUSHING TO DockerHub ...'"
+            docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+                def app = docker.build("pengyue/awin-reporttask:$(commit_id)", '.').push()
+            }
         }
 
     } catch(error) {
