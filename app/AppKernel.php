@@ -118,3 +118,4 @@ class AppKernel extends Kernel
     }
 
 }
+
