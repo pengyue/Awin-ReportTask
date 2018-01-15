@@ -12,7 +12,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
-class PhoneNumberController extends FOSRestController
+class ReportController extends FOSRestController
 {
     /**
      * @ApiDoc(
@@ -25,10 +25,10 @@ class PhoneNumberController extends FOSRestController
      *         }
      *     },
      *     statusCodes={
-     *          200="Returned when validation is successful",
+     *          200="Returned when report is generated successful",
      *          403="Returned when request is not authorised",
      *          500={
-     *           "Returned when the number validation fails",
+     *           "Returned when the report generation fails",
      *           "Returned when input param lead to the validation failure"
      *         }
      *     },

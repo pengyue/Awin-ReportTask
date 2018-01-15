@@ -3,5 +3,5 @@ services:
         class: Awin\ReportTask\Bundle\ReportBundle\Controller\v1\DefaultController
         arguments: []
     api.controllers.v1.phone_number:
-            class: Awin\ReportTask\Bundle\ReportBundle\Controller\v1\PhoneNumberController
+            class: Awin\ReportTask\Bundle\ReportBundle\Controller\v1\ReportController
             arguments: []
