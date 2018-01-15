@@ -87,6 +87,7 @@ RUN mkdir -p /app/vendor/ && \
 
 # Run composer install as user 'build' and clean up the cache
 USER build
+RUN php bin/console cache:clear --no-warmup
 RUN composer install --no-interaction --no-ansi --no-progress --prefer-dist && composer clear-cache --no-ansi --quiet
 USER root
 
