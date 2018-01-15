@@ -36,7 +36,7 @@ node {
             // sh "ansible-playbook -i ./ansible/hosts ./ansible/deploy.yml"
             sh "echo 'PUSHING TO DockerHub ...'"
             docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-                def app = docker.build("pengyue/awin-reporttask:$(commit_id)", '.').push()
+                def app = docker.build("pengyue/awin-reporttask:${commit_id}", '.').push()
             }
         }
 
