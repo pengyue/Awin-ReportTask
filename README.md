@@ -1,4 +1,4 @@
-Affiliate Window Candidate Task
+Affiliate Window Candidate Task 
 ===============================
 
 ### Objective
