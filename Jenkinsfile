@@ -6,8 +6,9 @@ node {
 
         stage ("Checkout") {
             checkout scm
-            sh "git rev-parse --short HEAD > .git/commit-id"
-            commit_id = readFile('.git/commit-id').trim()
+            #sh "git rev-parse --short HEAD > .git/commit-id"
+            #commit_id = readFile('.git/commit-id').trim()
+            commit_id = "latest"
         }
 
         stage ("Build") {
