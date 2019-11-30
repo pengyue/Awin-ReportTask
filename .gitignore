@@ -1,7 +1,4 @@
 vendor/*
-var/logs/*
-var/cache/*
-var/sessions/*
-var/log/*
-var/*.*
+var/
+bin/
 .idea/
