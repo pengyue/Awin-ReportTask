@@ -1,4 +1,4 @@
-vendor/*
+vendor/
 var/
 bin/
 .idea/

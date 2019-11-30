@@ -26,8 +26,8 @@
         "monolog/monolog": "^1.22"
     },
     "require-dev": {
-        "phpunit/phpunit": "5.*",
-        "whatthejeff/nyancat-phpunit-resultprinter": "1.*",
+        "phpunit/phpunit": "^6",
+        "whatthejeff/nyancat-phpunit-resultprinter": "^2.0",
         "laravel/homestead": "^5.2",
         "behat/behat": "3.2.*",
         "zalas/behat-no-extension": "^1.0"
@@ -52,6 +52,11 @@
         }
     },
     "scripts": {
+        "test": [
+            "vendor/bin/phpunit tests/unit",
+            "vendor/bin/phpunit tests/integration",
+            "vendor/bin/behat"
+        ],
         "symfony-scripts": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
