@@ -53,8 +53,8 @@
     },
     "scripts": {
         "test": [
-            "vendor/bin/phpunit tests --printer PHPUnit_TextUI_ResultPrinter --coverage-clover=var/code-coverage/phpcov-unit.xml --coverage-html=var/code-coverage/phpcov-unit.html",
-            "vendor/bin/behat"
+            "vendor/bin/phpunit tests --printer PHPUnit\\\\TextUI\\\\ResultPrinter --coverage-clover=var/code-coverage/phpcov-unit.xml --coverage-html=var/code-coverage/phpcov-unit.html",
+            "vendor/bin/behat "
         ],
         "symfony-scripts": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
