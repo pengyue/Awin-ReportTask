@@ -53,8 +53,7 @@
     },
     "scripts": {
         "test": [
-            "vendor/bin/phpunit tests/unit",
-            "vendor/bin/phpunit tests/integration",
+            "vendor/bin/phpunit tests --printer PHPUnit_TextUI_ResultPrinter --coverage-clover=var/code-coverage/phpcov-unit.xml --coverage-html=var/code-coverage/phpcov-unit.html",
             "vendor/bin/behat"
         ],
         "symfony-scripts": [
