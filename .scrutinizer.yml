@@ -30,7 +30,7 @@ build:
                             web_root: 'web/'
                             host: 'report.awin'
                 php:
-                    version: '7.1'
+                    version: '7.2'
                 elasticsearch: false
                 rabbitmq: false
                 redis: false
@@ -47,12 +47,12 @@ build:
     tests:
         override:
             -
-                command: './vendor/bin/phpunit --testsuite="unit" --coverage-clover=var/code-coverage/phpcov-unit.xml --printer PHPUnit_TextUI_ResultPrinter'
+                command: './vendor/bin/phpunit --testsuite="unit" --coverage-clover=var/code-coverage/phpcov-unit.xml --printer PHPUnit\\TextUI\\ResultPrinter'
                 coverage:
                     file: 'var/code-coverage/phpcov-unit.xml'
                     format: 'php-clover'
             -
-                command: './vendor/bin/phpunit --testsuite="integration" --coverage-clover=var/code-coverage/phpcov-integration.xml --printer PHPUnit_TextUI_ResultPrinter'
+                command: './vendor/bin/phpunit --testsuite="integration" --coverage-clover=var/code-coverage/phpcov-integration.xml --printer PHPUnit\\TextUI\\ResultPrinter'
                 coverage:
                     file: 'var/code-coverage/phpcov-integration.xml'
                     format: 'php-clover'
