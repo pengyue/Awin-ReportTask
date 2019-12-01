@@ -164,7 +164,7 @@ The Dockerfile has been added, to generate a new image, please run command below
 remember removing 'vendor' and 'var/cache/*' before
 
 ```
-docker build -t awin-task .
+docker build -t pengyue/awin-reporttask .
 ```
 
 
