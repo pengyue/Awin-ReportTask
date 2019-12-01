@@ -10,6 +10,7 @@ use Awin\ReportTask\Bundle\ReportBundle\Model\Merchant;
 use Awin\ReportTask\Bundle\ReportBundle\Model\TransactionTable;
 use Awin\ReportTask\Bundle\ReportBundle\Service\MerchantTransactionService;
 use Awin\ReportTask\Bundle\ReportBundle\Service\MerchantTransactionServiceInterface;
+use PHPUnit\Framework\Assert;
 use Behat\Behat\Context\Context;
 use League\Csv\Reader;
 
@@ -39,7 +40,7 @@ class ReportContext implements Context
     {
         $this->merchantTransactionService->setTransactionRepository(new TransactionTable('var/storage/data.csv'));
         $self = $this->merchantTransactionService->filterTransactionsByMerchantId($merchantId);
-        \PHPUnit_Framework_Assert::assertInstanceOf(MerchantTransactionServiceInterface::class, $self);
+        Assert::assertInstanceOf(MerchantTransactionServiceInterface::class, $self);
     }
 
     /**
@@ -73,7 +74,7 @@ class ReportContext implements Context
             }
         }
 
-        \PHPUnit_Framework_Assert::assertTrue($isMerchantIdAlwaysCorrect);
+        Assert::assertTrue($isMerchantIdAlwaysCorrect);
     }
 
 }
