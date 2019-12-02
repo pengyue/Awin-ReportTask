@@ -4,6 +4,11 @@ node {
 
         def commit_id
 
+        environment {
+            registry = "pengyue/awin-reporttask"
+            registryCredential = ‘dockerhub’
+        }
+
         stage ("Checkout") {
             checkout scm
             //sh "git rev-parse --short HEAD > .git/commit-id"
@@ -34,7 +39,7 @@ node {
 
         stage ('Docker Registration Push') {
             sh "echo 'PUSHING TO DockerHub ...'"
-            docker.withRegistry('https://index.docker.io/v1/', 'Dockerhub') {
+            docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
                 def app = docker.build("pengyue/awin-reporttask:${commit_id}", '.').push()
             }
         }
