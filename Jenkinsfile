@@ -20,7 +20,7 @@ node {
     def slackBaseUrl = "https://triplanteam.slack.com/services/hooks/jenkins-ci/"
     def slackTeamDomain = "triplanteam"
     def ownerSlackChannel = "#deployment"
-    def slackTokenCredentialId = "hQ42R4mSgcZfFxsyD8M0Dwt0"
+    def slackTokenCredentialId = "fMerzuSfhEBM97EB5vcO5dZl"
     def ownerEmail = "penyues@gmail.com"
 
     stage ("Checkout") {
