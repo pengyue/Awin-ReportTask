@@ -13,11 +13,7 @@ node {
     }
 
     def commitId = "latest"
-
-
-    wrap([$class: 'BuildUser']) {
-       def user = env.BUILD_USER_ID
-    }
+    def user = env.BUILD_USER_ID
 
     def version = 'latest'
     def projectName = "awin-report-task"
