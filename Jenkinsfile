@@ -5,7 +5,7 @@ properties([
 //    pipelineTriggers([cron('@daily')])  // build once a day
 ])
 
-node('linux') {
+node {
 
     environment {
         registry = "pengyue/awin-reporttask"
