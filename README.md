@@ -124,7 +124,7 @@ vendor/bin/phpunit tests/unit
 To run unit tests with plain PHPUnit output.
 
 ```
-vendor/bin/phpunit tests/unit --printer PHPUnit_TextUI_ResultPrinter
+vendor/bin/phpunit tests/unit --printer PHPUnit_TextUI_ResultPrinter 
 ```
 
 To run integration tests.
