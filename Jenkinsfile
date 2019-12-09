@@ -127,8 +127,8 @@ node {
     }
 
     if (currentBuild.result == "FAILURE" && currentBuild.previousBuild.result != 'FAILURE') {
-        slackSend baseUrl: "${slackBaseUrl}"
-            teamDomain: "${slackTeamDomain}"
+        slackSend baseUrl: "${slackBaseUrl}",
+            teamDomain: "${slackTeamDomain}",
             channel: "${ownerSlackChannel}",
             color: '#af0000',
             message: "master branch of ${projectName} has failed - ${env.BUILD_URL}",
@@ -141,8 +141,8 @@ node {
 
         // for recovery
     } else if (currentBuild.result == 'SUCCESS' && currentBuild.previousBuild.result != 'SUCCESS') {
-        slackSend baseUrl: "${slackBaseUrl}"
-            teamDomain: "${slackTeamDomain}"
+        slackSend baseUrl: "${slackBaseUrl}",
+            teamDomain: "${slackTeamDomain}",
             channel: "${ownerSlackChannel}",
             color: '#00960c',
             message: "master branch of ${projectName} has recovered! - ${env.BUILD_URL}",
