@@ -30,8 +30,9 @@ node {
        shortCommit = gitCommit.take(7)
 
        //pom = readMavenPom file: 'pom.xml'
+       //version = "${pom.version}-${BUILD_NUMBER}-${shortCommit}"
 
-       version = "${pom.version}-${BUILD_NUMBER}-${shortCommit}"
+       version = "build-${BUILD_NUMBER}-${shortCommit}"
        echo "version: ${version}"
        currentBuild.description = version
     }
