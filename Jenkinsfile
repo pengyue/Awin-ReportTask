@@ -122,7 +122,7 @@ node {
        // Any cleanup operations needed, whether we hit an error or not
        if (currentBuild.result == "FAILURE") {
            //sh "make clean version=${version}"
-           throw error
+           //throw error
         }
     }
 
