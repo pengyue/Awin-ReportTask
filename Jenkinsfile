@@ -17,6 +17,8 @@ node {
 
     def version = 'latest'
     def projectName = "awin-report-task"
+    def slackBaseUrl = "https://triplanteam.slack.com/services/hooks/jenkins-ci/"
+    def slackTeamDomain = "triplanteam"
     def ownerSlackChannel = "#deployment"
     def slackTokenCredentialId = "hQ42R4mSgcZfFxsyD8M0Dwt0"
     def ownerEmail = "penyues@gmail.com"
@@ -125,7 +127,9 @@ node {
     }
 
     if (currentBuild.result == "FAILURE" && currentBuild.previousBuild.result != 'FAILURE') {
-        slackSend channel: "${ownerSlackChannel}",
+        slackSend baseUrl: "${slackBaseUrl}"
+            teamDomain: "${slackTeamDomain}"
+            channel: "${ownerSlackChannel}",
             color: '#af0000',
             message: "master branch of ${projectName} has failed - ${env.BUILD_URL}",
             tokenCredentialId: "${slackTokenCredentialId}"
@@ -137,7 +141,9 @@ node {
 
         // for recovery
     } else if (currentBuild.result == 'SUCCESS' && currentBuild.previousBuild.result != 'SUCCESS') {
-        slackSend channel: "${ownerSlackChannel}",
+        slackSend baseUrl: "${slackBaseUrl}"
+            teamDomain: "${slackTeamDomain}"
+            channel: "${ownerSlackChannel}",
             color: '#00960c',
             message: "master branch of ${projectName} has recovered! - ${env.BUILD_URL}",
             tokenCredentialId: "${slackTokenCredentialId}"
