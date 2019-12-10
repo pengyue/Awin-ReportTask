@@ -73,7 +73,7 @@ node {
        stage ('Docker Registration Push') {
           sh "echo 'PUSHING TO DockerHub ...'"
           docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-              def app = docker.build("${registry}:${commitId}", '.').push()
+              def app = docker.build("${env.registry}:${commitId}", '.').push()
           }
        }
 
