@@ -73,7 +73,7 @@ node {
        stage ('Docker Registration Push') {
           sh "echo 'PUSHING TO DockerHub ...'"
           docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-              def app = docker.build("pengyue/awin-reporttask:${commitId}", '.').push()
+              def app = docker.build("${registry}:${commitId}", '.').push()
           }
        }
 
@@ -155,9 +155,9 @@ node {
     }
 
 
-    }
+}
 
-    def canDeploy(Date date) {
+def canDeploy(Date date) {
 
     // Monoday to Thursday between 07:00 and 17:30 London time
     // On Friday from 07:00 to 12:00 London time
