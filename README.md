@@ -1,6 +1,12 @@
 Affiliate Window Candidate Task 
 ===============================
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/b/maplesyrupgroup/qp-ms-product-search/badges/coverage.png?b=master&s=b495c2948f06e0aebe39a9bd1c7dcf5ba5fbaf67)](https://scrutinizer-ci.com/b/maplesyrupgroup/qp-ms-product-search/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/badges/build.png?b=master)](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
+
 ### Objective
 
 To demonstrate your OOP and unit testing skills.
@@ -38,13 +44,6 @@ The project is to create a command to generate a transaction report on merchant_
 It uses Symfony 3 framework and implemented with customized template, it utilizes dependency injection,
 service container, unit tests, integration tests, behat tests, SOLID design pattern such as observer pattern.
 It has nearly 100% code coverage on the main logic directories (src/).
-
-
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/b/maplesyrupgroup/qp-ms-product-search/badges/coverage.png?b=master&s=b495c2948f06e0aebe39a9bd1c7dcf5ba5fbaf67)](https://scrutinizer-ci.com/b/maplesyrupgroup/qp-ms-product-search/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/badges/build.png?b=master)](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/build-status/master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/pengyue/Awin-ReportTask/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
-
 
 ## Getting Started
 
