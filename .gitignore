@@ -1,4 +1,5 @@
 vendor/
 var/
+var/storage
 bin/
 .idea/
