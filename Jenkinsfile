@@ -134,10 +134,10 @@ node {
             message: "master branch of ${projectName} has failed - ${env.BUILD_URL}",
             tokenCredentialId: "${slackTokenCredentialId}"
 
-        mail from: 'zipp_yp@hotmail.com',
-            to: "${ownerEmail}",
-            subject: "${projectName} build failed",
-            body: "${projectName} build failed: ${env.BUILD_URL}"
+        //mail from: 'zipp_yp@hotmail.com',
+        //    to: "${ownerEmail}",
+        //    subject: "${projectName} build failed",
+        //    body: "${projectName} build failed: ${env.BUILD_URL}"
 
         // for recovery
     } else if (currentBuild.result == 'SUCCESS' && currentBuild.previousBuild.result != 'SUCCESS') {
@@ -148,10 +148,10 @@ node {
             message: "master branch of ${projectName} has recovered! - ${env.BUILD_URL}",
             tokenCredentialId: "${slackTokenCredentialId}"
 
-        mail from: 'zippo_yp@hotmail.com',
-            to: "${ownerEmail}",
-            subject: "${projectName} build has recovered",
-            body: "${projectName} build has recovered: ${env.BUILD_URL}"
+        //mail from: 'zippo_yp@hotmail.com',
+        //    to: "${ownerEmail}",
+        //    subject: "${projectName} build has recovered",
+        //    body: "${projectName} build has recovered: ${env.BUILD_URL}"
     }
 
 
