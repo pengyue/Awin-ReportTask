@@ -117,7 +117,7 @@ node {
 
     } catch(error) {
        currentBuild.result = "FAILURE"
-       echo "${err}"
+       echo "${error}"
     } finally {
        // Any cleanup operations needed, whether we hit an error or not
        if (currentBuild.result == "FAILURE") {
