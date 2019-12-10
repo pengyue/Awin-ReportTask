@@ -14,6 +14,7 @@ node {
 
     def commitId = "latest"
     def user = env.BUILD_USER_ID
+    def dockerRegistry = "pengyue/awin-reporttask"
 
     def version = 'latest'
     def projectName = "awin-report-task"
@@ -73,7 +74,7 @@ node {
        stage ('Docker Registration Push') {
           sh "echo 'PUSHING TO DockerHub ...'"
           docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-              def app = docker.build("${env.registry}:${commitId}", '.').push()
+              def app = docker.build("${dockerRegistry}:${commitId}", '.').push()
           }
        }
 
